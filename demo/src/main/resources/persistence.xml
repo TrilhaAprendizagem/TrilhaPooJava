@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
+                                 http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
+             version="2.1">
+    <persistence-unit name="EscolaPU" transaction-type="RESOURCE_LOCAL">
+        <!-- Entities -->
+        <class>com.br.rp.escola.Aluno</class>
+        <class>com.br.rp.escola.Aula</class>
+        <class>com.br.rp.escola.Curso</class>
+        <class>com.br.rp.escola.Disciplina</class>
+        <class>com.br.rp.escola.Professor</class>
+        <class>com.br.rp.escola.Turma</class>
+
+        <properties>
+            <!-- Connection settings for H2 -->
+            <property name="jakarta.persistence.jdbc.driver" value="org.h2.Driver"/>
+            <!-- Use a persistent database instead of in-memory for production -->
+            <!-- Adjust the URL to point to your project directory -->
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:h2:file:<completeocaminho>/escola2/demo/src/persistence/db"/>
+            <property name="jakarta.persistence.jdbc.user" value="bdteste"/>
+            <property name="jakarta.persistence.jdbc.password" value="teste"/>
+
+            <!-- Hibernate properties -->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+
+            <!-- Optional: Create/update tables automatically (careful in production) -->
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+        </properties>
+    </persistence-unit>
+</persistence>
